@@ -28,8 +28,9 @@
                     // console.log(data.status);
                     x = data.student_data;
                     if (data.status == "Save") {
-                        output = "";
-                        console.log("Form Submitted Successfully");
+                        
+                        $("#msg").text("Form Submitted Successfully");
+                        $("#msg").show();
                         //console.log(x);
                         for (i=0;i<x.length;i++){
                             output += "<tr><td>" 
@@ -48,7 +49,8 @@
                         $("form")[0].reset();
                     }
                     if (data.status == 0) {
-                        console.log("Unable to Save Form");
+                        $("#msg").text("Unable to Save Form Data");
+                        $("#msg").show();
                         $("#stuid").val('');
                         $("form")[0].reset();
                     }
@@ -60,6 +62,8 @@
     //Delete Data
     $("#tbody").on("click", ".btn-del", function () {
         console.log("Delete Button Clicked");
+        $("#msg").text("Data Deleted Successfully");
+        $("#msg").show();
         let id =$(this).attr("data-sid");
         let csr = $("input[name=csrfmiddlewaretoken").val();
         mythis = this;
@@ -77,6 +81,8 @@
                }
                if (data.status == 0){
                 console.log("Unable to Delte Data");
+                $("#msg").text("Unable to delete Data");
+                $("#msg").show();
                }
             },
         });

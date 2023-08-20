@@ -19,8 +19,9 @@
                     {% csrf_token %}
                     <input type="hidden" name="stuid" id="stuid" />
                     {{form.as_p}}
+                    <input type="button" class="btn btn-success" id="btnsave" value="Save">
                 </form>
-                <input type="button" class="btn btn-success" id="btnsave" value="Save">
+                <div id="msg" class="alert alert-danger" style="display: none"></div>
             </div>
             <div class="col-sm-7">
                 <h4 class="text-center alert alert-info">Show Student Information</h4>
